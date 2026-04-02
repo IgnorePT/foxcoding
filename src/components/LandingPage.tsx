@@ -53,7 +53,7 @@ export default function LandingPage() {
 
         <h1 className="title" data-testid="title">
           <span className="fox">FOX</span>
-          <span className="coding">NOT CODING</span>
+          <span className="coding">CODING</span>
         </h1>
 
         <p className="tagline" data-testid="tagline">
