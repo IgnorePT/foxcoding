@@ -1,0 +1,276 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0a0a1a;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Landing layout */
+.landing {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* CRT scanline overlay */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* Stars background */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #fff;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Floating particles */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  animation: float 8s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Main container */
+.container {
+  text-align: center;
+  z-index: 10;
+  position: relative;
+}
+
+/* High score */
+.high-score {
+  color: #ffd700;
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+/* Pixel fox grid */
+.pixel-fox {
+  display: grid;
+  grid-template-columns: repeat(16, 8px);
+  gap: 1px;
+  justify-content: center;
+  margin: 0 auto 10px;
+}
+
+.pixel {
+  width: 8px;
+  height: 8px;
+}
+
+/* Title */
+.title {
+  font-size: 42px;
+  font-weight: bold;
+  letter-spacing: 6px;
+  margin: 25px 0 5px;
+  font-family: 'Courier New', monospace;
+  text-shadow: 3px 3px 0 #e94560, 6px 6px 0 rgba(233, 69, 96, 0.3);
+}
+
+.title .fox {
+  color: #ffd700;
+}
+
+.title .coding {
+  color: #4ecdc4;
+}
+
+/* Tagline */
+.tagline {
+  color: #a8a8a8;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+/* Coming soon */
+.coming-soon {
+  font-size: 22px;
+  color: #e94560;
+  letter-spacing: 4px;
+  animation: pulse 2s ease-in-out infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Press start button */
+.press-start {
+  display: inline-block;
+  border: 2px solid #ffd700;
+  color: #ffd700;
+  background: transparent;
+  padding: 10px 30px;
+  font-size: 14px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 3px;
+  cursor: pointer;
+  animation: blink 1.5s step-end infinite;
+  transition: all 0.2s;
+}
+
+.press-start:hover {
+  background: #ffd700;
+  color: #0a0a1a;
+}
+
+@keyframes blink {
+  0%,
+  60% {
+    opacity: 1;
+  }
+  61%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Fox emoji lives */
+.lives {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 25px;
+}
+
+.life {
+  font-size: 18px;
+  animation: bob 1.5s ease-in-out infinite;
+}
+
+.life:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.life:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Footer */
+.footer {
+  position: fixed;
+  bottom: 20px;
+  color: #555;
+  font-size: 10px;
+  letter-spacing: 2px;
+  z-index: 10;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .title {
+    font-size: 28px;
+    letter-spacing: 3px;
+  }
+
+  .coming-soon {
+    font-size: 16px;
+  }
+
+  .pixel-fox {
+    grid-template-columns: repeat(16, 6px);
+  }
+
+  .pixel {
+    width: 6px;
+    height: 6px;
+  }
+}
