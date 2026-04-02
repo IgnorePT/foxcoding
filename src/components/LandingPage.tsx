@@ -55,7 +55,7 @@ export default function LandingPage() {
         <PixelFox />
 
         <h1 className="title" data-testid="title">
-          <span className="fox"></span>
+          <span className="fox">FOX</span>
           <span className="coding">CODING</span>
         </h1>
 
