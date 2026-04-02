@@ -1,9 +1,12 @@
 import { useEffect, useRef } from "react";
 import PixelFox from "./PixelFox";
+import heroImage from "../assets/hero.png";
 
 const STAR_COUNT = 60;
 const PARTICLE_COUNT = 15;
 const PARTICLE_COLORS = ["#ffd700", "#e94560", "#4ecdc4", "#ff8c00", "#00ff41"];
+// Bajras
+export const sum = (a: number, b: number) => a + b;
 
 export default function LandingPage() {
   const starsRef = useRef<HTMLDivElement>(null);
@@ -64,7 +67,11 @@ export default function LandingPage() {
           &#9608; COMING SOON &#9608;
         </div>
 
-        <button className="press-start" data-testid="press-start">
+        <button
+          onClick={() => sum(1, 2)}
+          className="press-start"
+          data-testid="press-start"
+        >
           PRESS START
         </button>
 
@@ -74,6 +81,8 @@ export default function LandingPage() {
           <span className="life">&#129418;</span>
         </div>
       </div>
+
+      <img src={heroImage} alt="Hero" />
 
       <footer className="footer" data-testid="footer">
         INSERT COIN TO CONTINUE &bull; &copy; 2026 FOXCODING
