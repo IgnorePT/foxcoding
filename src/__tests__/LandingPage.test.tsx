@@ -1,20 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import LandingPage, { sum } from "../components/LandingPage";
-
-describe("sum", () => {
-  it("returns the sum of two positive numbers", () => {
-    expect(sum(1, 2)).toBe(3);
-  });
-
-  it("returns the sum with negative numbers", () => {
-    expect(sum(-1, -2)).toBe(-3);
-  });
-
-  it("returns the sum when one argument is zero", () => {
-    expect(sum(0, 5)).toBe(5);
-  });
-});
+import LandingPage from "../components/LandingPage";
 
 describe("LandingPage", () => {
   it("renders the title with FOX and CODING", () => {

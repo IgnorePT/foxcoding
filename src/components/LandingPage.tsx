@@ -1,12 +1,9 @@
 import { useEffect, useRef } from "react";
 import PixelFox from "./PixelFox";
-import heroImage from "../assets/hero.png";
 
 const STAR_COUNT = 60;
 const PARTICLE_COUNT = 15;
 const PARTICLE_COLORS = ["#ffd700", "#e94560", "#4ecdc4", "#ff8c00", "#00ff41"];
-// Bajras
-export const sum = (a: number, b: number) => a + b;
 
 export default function LandingPage() {
   const starsRef = useRef<HTMLDivElement>(null);
@@ -41,6 +38,8 @@ export default function LandingPage() {
     }
   }, []);
 
+  const key = import.meta.env.VITE_API_KEY;
+
   return (
     <div className="landing">
       <div className="scanlines" />
@@ -67,8 +66,12 @@ export default function LandingPage() {
           &#9608; COMING SOON &#9608;
         </div>
 
+        <div className="coming-soon" data-testid="coming-soon">
+          {key}
+        </div>
+
         <button
-          onClick={() => sum(1, 2)}
+          onClick={() => console.log("PRESS START clicked")}
           className="press-start"
           data-testid="press-start"
         >
@@ -81,8 +84,6 @@ export default function LandingPage() {
           <span className="life">&#129418;</span>
         </div>
       </div>
-
-      <img src={heroImage} alt="Hero" />
 
       <footer className="footer" data-testid="footer">
         INSERT COIN TO CONTINUE &bull; &copy; 2026 FOXCODING
